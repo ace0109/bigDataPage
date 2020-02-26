@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <title>同安教育疫情防控速报</title>
+    <link rel="stylesheet" href="./css/flex.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background: url(./images/bg.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont,
+          Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial,
+          sans-serif;
+      }
+      header {
+        width: 100%;
+        min-width: 1000px;
+        height: 105px;
+        text-align: center;
+        position: relative;
+      }
+      header > img {
+        width: 100%;
+        max-width: 1920px;
+        height: 100%;
+        object-fit: cover;
+      }
+      header > h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        line-height: 90px;
+        color: #fff;
+        font-size: 60px;
+        letter-spacing: 20px;
+      }
+      .main {
+        width: 100%;
+        min-width: 1000px;
+        height: calc(100vh - 105px);
+        background: rgba(34, 34, 62, 0.5);
+        padding: 10px;
+      }
+      .main > div.left,
+      .main > div.right {
+        width: 25%;
+      }
+      .main > div.middle {
+        margin: 0 25px;
+      }
+      .module-border {
+        border-radius: 4px;
+        border: 2px solid #343e62;
+        box-shadow: 0 0 10px #343e62;
+      }
+      .reported-persons-number {
+        width: 100%;
+      }
+      .reported-persons-type {
+        text-align: center;
+        padding: 10px 15px;
+      }
+      .reported-persons-type > h3 {
+        color: #fff;
+        margin: 0;
+        font-size: 22px;
+      }
+      .reported-persons-type > p.total-number {
+        margin: 10px 0 0;
+        font-size: 34px;
+        font-weight: 600;
+      }
+      .reported-persons-type > p.today-number {
+        margin: 5px 0 0;
+        font-size: 18px;
+        color: #ff6a57;
+      }
+      .reported-persons-type > h4 {
+        margin: 10px 0 0;
+        color: #999;
+        font-weight: 500;
+      }
+      .reported-persons-type > p.case-number {
+        margin: 5px 0 0;
+        font-size: 36px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="./images/head_bg.png" />
+      <h1>同安教育疫情防控速报</h1>
+    </header>
+    <div class="main" flex="main:justify cross:stretch box:justify">
+      <div class="left"></div>
+      <div class="middle">
+        <div class="reported-persons-number module-border" flex="main:center">
+          <div class="reported-persons-type">
+            <h3>累计上报学生人次</h3>
+            <p class="total-number" style="color: #45aaf2;">2346745</p>
+            <p class="today-number">今日 3256</p>
+            <h4>确诊病例</h4>
+            <p class="case-number" style="color: #e83132;">0</p>
+          </div>
+          <div class="reported-persons-type">
+            <h3>累计上报教师人次</h3>
+            <p class="total-number" style="color: #ccc;">16465</p>
+            <p class="today-number">今日 265</p>
+            <h4>疑似病例</h4>
+            <p class="case-number" style="color: #ec9217;">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>
