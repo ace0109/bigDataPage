@@ -8,98 +8,7 @@
     />
     <title>同安教育疫情防控速报</title>
     <link rel="stylesheet" href="./css/flex.css" />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100vh;
-        background: url(./images/bg.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont,
-          Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial,
-          sans-serif;
-      }
-      header {
-        width: 100%;
-        min-width: 1000px;
-        height: 105px;
-        text-align: center;
-        position: relative;
-      }
-      header > img {
-        width: 100%;
-        max-width: 1920px;
-        height: 100%;
-        object-fit: cover;
-      }
-      header > h1 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        line-height: 90px;
-        color: #fff;
-        font-size: 60px;
-        letter-spacing: 20px;
-      }
-      .main {
-        width: 100%;
-        min-width: 1000px;
-        height: calc(100vh - 105px);
-        background: rgba(34, 34, 62, 0.5);
-        padding: 10px;
-      }
-      .main > div.left,
-      .main > div.right {
-        width: 25%;
-      }
-      .main > div.middle {
-        margin: 0 25px;
-      }
-      .module-border {
-        border-radius: 4px;
-        border: 2px solid #343e62;
-        box-shadow: 0 0 10px #343e62;
-      }
-      .reported-persons-number {
-        width: 100%;
-      }
-      .reported-persons-type {
-        text-align: center;
-        padding: 10px 15px;
-      }
-      .reported-persons-type > h3 {
-        color: #fff;
-        margin: 0;
-        font-size: 22px;
-      }
-      .reported-persons-type > p.total-number {
-        margin: 10px 0 0;
-        font-size: 34px;
-        font-weight: 600;
-      }
-      .reported-persons-type > p.today-number {
-        margin: 5px 0 0;
-        font-size: 18px;
-        color: #ff6a57;
-      }
-      .reported-persons-type > h4 {
-        margin: 10px 0 0;
-        color: #999;
-        font-weight: 500;
-      }
-      .reported-persons-type > p.case-number {
-        margin: 5px 0 0;
-        font-size: 36px;
-        font-weight: 600;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header>
@@ -107,9 +16,32 @@
       <h1>同安教育疫情防控速报</h1>
     </header>
     <div class="main" flex="main:justify cross:stretch box:justify">
-      <div class="left"></div>
-      <div class="middle">
-        <div class="reported-persons-number module-border" flex="main:center">
+      <div class="left" flex="main:justify dir:top">
+        <div class="module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>全区学生感冒发烧趋势</p>
+          </div>
+          <div id="student_cold_trend"></div>
+        </div>
+        <div class="module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>计划返厦人员趋势</p>
+          </div>
+          <div id="plan_back_trend"></div>
+        </div>
+        <div class="module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>返厦人员趋势</p>
+          </div>
+          <div id="back_trend"></div>
+        </div>
+      </div>
+      <div class="middle" flex="main:justify dir:top">
+        <div
+          class="reported-persons-number module-border"
+          flex="main:center"
+          flex-box="0"
+        >
           <div class="reported-persons-type">
             <h3>累计上报学生人次</h3>
             <p class="total-number" style="color: #45aaf2;">2346745</p>
@@ -125,8 +57,1188 @@
             <p class="case-number" style="color: #ec9217;">0</p>
           </div>
         </div>
+        <!-- 返厦进度条 -->
+        <div class="back-progress-bar module-border" flex-box="0">
+          <div id="back_progress_bar"></div>
+          <div class="back-progress-bar-title">
+            <p>公办中小学：</p>
+            <p>公办幼儿园：</p>
+            <p>民办幼儿园：</p>
+          </div>
+        </div>
+        <!-- 全国地图 -->
+        <div class="china-map module-border" flex-box="1">
+          <div id="china_map_container"></div>
+        </div>
+        <!-- 上报学校列表数据 -->
+        <div class="reported-schools-list module-border" flex-box="0">
+          <table cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>学校</th>
+                <th>上报数</th>
+                <th>未上报</th>
+                <th>上报率</th>
+                <th>总数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="right"></div>
+      <div class="right" flex="main:justify dir:top">
+        <div class="module-border" flex-box="0">
+          <div class="title" flex="main:center">
+            <p>重点关注人员数据</p>
+          </div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">人员类型</div>
+            <div flex-box="0">在同安</div>
+            <div flex-box="0">不在同安</div>
+          </div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">湖北籍去过湖北</div>
+            <div flex-box="0">227</div>
+            <div flex-box="0">227</div>
+          </div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">非湖北籍去过湖北</div>
+            <div flex-box="0">227</div>
+            <div flex-box="0">227</div>
+          </div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">湖北籍未去湖北</div>
+            <div flex-box="0">227</div>
+            <div flex-box="0">227</div>
+          </div>
+        </div>
+        <div class="module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>湖北返厦师生分布</p>
+          </div>
+          <div id="hubei_back_bar"></div>
+        </div>
+        <div class="module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>重点区域返厦师生信息</p>
+          </div>
+          <div id="key_areas_back_bar"></div>
+        </div>
+      </div>
     </div>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/china.js"></script>
+    <script>
+      window.onload = function() {
+        // 返厦进度条
+        var progressChart = echarts.init(
+          document.getElementById("back_progress_bar")
+        );
+        // 全国地图
+        var chinaMapChart = echarts.init(
+          document.getElementById("china_map_container")
+        );
+
+        // 学生感冒趋势
+        var studentColdTrendChart = echarts.init(
+          document.getElementById("student_cold_trend")
+        );
+
+        // 计划返厦人员趋势
+        var planBackTrendChart = echarts.init(
+          document.getElementById("plan_back_trend")
+        );
+
+        // 返厦人员趋势
+        var backTrendChart = echarts.init(
+          document.getElementById("back_trend")
+        );
+
+        // 湖北返厦师生分布
+        var hubeiBackBarChart = echarts.init(
+          document.getElementById("hubei_back_bar")
+        );
+
+        // 重点区域返厦师生信息
+        var keyAreasBackBarChart = echarts.init(
+          document.getElementById("key_areas_back_bar")
+        );
+
+        var backProgressOption = {
+          grid: {
+            show: false,
+            left: "80",
+            right: "2%",
+            top: 0,
+            bottom: 0,
+            height: "110px"
+          },
+          legend: {
+            icon: "circle",
+            itemWidth: 7,
+            itemHeight: 7,
+            itemGap: 50,
+            textStyle: {
+              color: "#fff"
+            },
+            data: [
+              {
+                name: "已返厦"
+              },
+              {
+                name: "未返厦"
+              }
+            ]
+          },
+          xAxis: [
+            {
+              type: "value",
+              axisTick: {
+                show: false
+              },
+              axisLine: {
+                show: false
+              },
+              axisLabel: {
+                show: false
+              },
+              splitLine: {
+                show: false
+              }
+            }
+          ],
+          yAxis: [
+            {
+              data: [""],
+              axisTick: {
+                show: false
+              },
+              axisLine: {
+                show: false
+              },
+              axisLabel: {
+                textStyle: {
+                  color: "#fff"
+                }
+              }
+            }
+          ],
+          series: [
+            {
+              name: "已返厦",
+              type: "bar",
+              barWidth: 8,
+              barGap: "200%",
+              stack: "公办中小学返厦比例",
+              label: {
+                normal: {
+                  borderWidth: 5,
+                  align: "center",
+                  borderRadius: 1,
+                  borderColor: "#2FC25B",
+                  backgroundColor: "#2FC25B",
+                  show: true,
+                  formatter: "{c}%",
+                  color: "#fff"
+                }
+              },
+              itemStyle: {
+                color: "#2FC25B"
+              },
+              data: [
+                {
+                  value: 70,
+                  itemStyle: {
+                    normal: {
+                      color: {
+                        type: "bar",
+                        colorStops: [
+                          {
+                            offset: 0,
+                            color: "#2FC25B" // 0% 处的颜色
+                          },
+                          {
+                            offset: 1,
+                            color: "#2FC25B" // 100% 处的颜色
+                          }
+                        ],
+                        globalCoord: false // 缺省为 false
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              name: "未返厦",
+              type: "bar",
+              barWidth: 8,
+              stack: "公办中小学返厦比例",
+              itemStyle: {
+                color: "#1890FF"
+              },
+              label: {
+                normal: {
+                  borderWidth: 5,
+                  align: "center",
+                  borderRadius: 1,
+                  borderColor: "#1890FF",
+                  backgroundColor: "#1890FF",
+                  show: true,
+                  formatter: "{c}%",
+                  color: "#fff"
+                }
+              },
+              data: [
+                {
+                  value: 30,
+                  itemStyle: {
+                    normal: {
+                      color: {
+                        type: "bar",
+                        colorStops: [
+                          {
+                            offset: 0,
+                            color: "#1890FF" // 0% 处的颜色
+                          },
+                          {
+                            offset: 1,
+                            color: "#1890FF" // 100% 处的颜色
+                          }
+                        ],
+                        globalCoord: false // 缺省为 false
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              name: "已返厦",
+              type: "bar",
+              barWidth: 8,
+              stack: "公办幼儿园返厦比例",
+              label: {
+                normal: {
+                  borderWidth: 5,
+                  align: "center",
+                  borderRadius: 1,
+                  borderColor: "#2FC25B",
+                  backgroundColor: "#2FC25B",
+                  show: true,
+                  formatter: "{c}%",
+                  color: "#fff"
+                }
+              },
+              itemStyle: {
+                color: "#2FC25B"
+              },
+              data: [
+                {
+                  value: 70,
+                  itemStyle: {
+                    normal: {
+                      color: {
+                        type: "bar",
+                        colorStops: [
+                          {
+                            offset: 0,
+                            color: "#2FC25B" // 0% 处的颜色
+                          },
+                          {
+                            offset: 1,
+                            color: "#2FC25B" // 100% 处的颜色
+                          }
+                        ],
+                        globalCoord: false // 缺省为 false
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              name: "未返厦",
+              type: "bar",
+              barWidth: 8,
+              stack: "公办幼儿园返厦比例",
+              label: {
+                normal: {
+                  borderWidth: 5,
+                  align: "center",
+                  borderRadius: 1,
+                  borderColor: "#1890FF",
+                  backgroundColor: "#1890FF",
+                  show: true,
+                  formatter: "{c}%",
+                  color: "#fff"
+                }
+              },
+              itemStyle: {
+                color: "#1890FF"
+              },
+              data: [
+                {
+                  value: 30,
+                  itemStyle: {
+                    normal: {
+                      color: {
+                        type: "bar",
+                        colorStops: [
+                          {
+                            offset: 0,
+                            color: "#1890FF" // 0% 处的颜色
+                          },
+                          {
+                            offset: 1,
+                            color: "#1890FF" // 100% 处的颜色
+                          }
+                        ],
+                        globalCoord: false // 缺省为 false
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              name: "已返厦",
+              type: "bar",
+              barWidth: 8,
+              stack: "民办幼儿园返厦比例",
+              label: {
+                normal: {
+                  borderWidth: 5,
+                  align: "center",
+                  borderRadius: 1,
+                  borderColor: "#2FC25B",
+                  backgroundColor: "#2FC25B",
+                  show: true,
+                  formatter: "{c}%",
+                  color: "#fff"
+                }
+              },
+              itemStyle: {
+                color: "#2FC25B"
+              },
+              data: [
+                {
+                  value: 70,
+                  itemStyle: {
+                    normal: {
+                      color: {
+                        type: "bar",
+                        colorStops: [
+                          {
+                            offset: 0,
+                            color: "#2FC25B" // 0% 处的颜色
+                          },
+                          {
+                            offset: 1,
+                            color: "#2FC25B" // 100% 处的颜色
+                          }
+                        ],
+                        globalCoord: false // 缺省为 false
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              name: "未返厦",
+              type: "bar",
+              barWidth: 8,
+              stack: "民办幼儿园返厦比例",
+              label: {
+                normal: {
+                  borderWidth: 5,
+                  align: "center",
+                  borderRadius: 1,
+                  borderColor: "#1890FF",
+                  backgroundColor: "#1890FF",
+                  show: true,
+                  formatter: "{c}%",
+                  color: "#fff"
+                }
+              },
+              itemStyle: {
+                color: "#1890FF"
+              },
+              data: [
+                {
+                  value: 30,
+                  itemStyle: {
+                    normal: {
+                      color: {
+                        type: "bar",
+                        colorStops: [
+                          {
+                            offset: 0,
+                            color: "#1890FF" // 0% 处的颜色
+                          },
+                          {
+                            offset: 1,
+                            color: "#1890FF" // 100% 处的颜色
+                          }
+                        ],
+                        globalCoord: false // 缺省为 false
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        };
+        progressChart.setOption(backProgressOption);
+
+        var name_title = "累计返厦人员位置分布";
+        var nameColor = "#fff";
+        var name_fontFamily = "Microsoft YaHei";
+        var name_fontSize = 18;
+        var mapName = "china";
+        var data = [
+          { name: "北京", value: 177 },
+          { name: "天津", value: 42 },
+          { name: "河北", value: 102 },
+          { name: "山西", value: 81 },
+          { name: "内蒙古", value: 47 },
+          { name: "辽宁", value: 67 },
+          { name: "吉林", value: 82 },
+          { name: "黑龙江", value: 66 },
+          { name: "上海", value: 24 },
+          { name: "江苏", value: 92 },
+          { name: "浙江", value: 114 },
+          { name: "安徽", value: 109 },
+          { name: "福建", value: 116 },
+          { name: "江西", value: 91 },
+          { name: "山东", value: 119 },
+          { name: "河南", value: 137 },
+          { name: "湖北", value: 116 },
+          { name: "湖南", value: 114 },
+          { name: "重庆", value: 91 },
+          { name: "四川", value: 125 },
+          { name: "贵州", value: 62 },
+          { name: "云南", value: 83 },
+          { name: "西藏", value: 9 },
+          { name: "陕西", value: 80 },
+          { name: "甘肃", value: 56 },
+          { name: "青海", value: 10 },
+          { name: "宁夏", value: 18 },
+          { name: "新疆", value: 67 },
+          { name: "广东", value: 123 },
+          { name: "广西", value: 59 },
+          { name: "海南", value: 14 }
+        ];
+
+        var geoCoordMap = {};
+        var toolTipData = [
+          {
+            name: "北京",
+            value: [
+              { name: "学生", value: 95 },
+              { name: "教师", value: 82 }
+            ]
+          },
+          {
+            name: "天津",
+            value: [
+              { name: "学生", value: 22 },
+              { name: "教师", value: 20 }
+            ]
+          },
+          {
+            name: "河北",
+            value: [
+              { name: "学生", value: 60 },
+              { name: "教师", value: 42 }
+            ]
+          },
+          {
+            name: "山西",
+            value: [
+              { name: "学生", value: 40 },
+              { name: "教师", value: 41 }
+            ]
+          },
+          {
+            name: "内蒙古",
+            value: [
+              { name: "学生", value: 23 },
+              { name: "教师", value: 24 }
+            ]
+          },
+          {
+            name: "辽宁",
+            value: [
+              { name: "学生", value: 39 },
+              { name: "教师", value: 28 }
+            ]
+          },
+          {
+            name: "吉林",
+            value: [
+              { name: "学生", value: 41 },
+              { name: "教师", value: 41 }
+            ]
+          },
+          {
+            name: "黑龙江",
+            value: [
+              { name: "学生", value: 35 },
+              { name: "教师", value: 31 }
+            ]
+          },
+          {
+            name: "上海",
+            value: [
+              { name: "学生", value: 12 },
+              { name: "教师", value: 12 }
+            ]
+          },
+          {
+            name: "江苏",
+            value: [
+              { name: "学生", value: 47 },
+              { name: "教师", value: 45 }
+            ]
+          },
+          {
+            name: "浙江",
+            value: [
+              { name: "学生", value: 57 },
+              { name: "教师", value: 57 }
+            ]
+          },
+          {
+            name: "安徽",
+            value: [
+              { name: "学生", value: 57 },
+              { name: "教师", value: 52 }
+            ]
+          },
+          {
+            name: "福建",
+            value: [
+              { name: "学生", value: 59 },
+              { name: "教师", value: 57 }
+            ]
+          },
+          {
+            name: "江西",
+            value: [
+              { name: "学生", value: 49 },
+              { name: "教师", value: 42 }
+            ]
+          },
+          {
+            name: "山东",
+            value: [
+              { name: "学生", value: 67 },
+              { name: "教师", value: 52 }
+            ]
+          },
+          {
+            name: "河南",
+            value: [
+              { name: "学生", value: 69 },
+              { name: "教师", value: 68 }
+            ]
+          },
+          {
+            name: "湖北",
+            value: [
+              { name: "学生", value: 60 },
+              { name: "教师", value: 56 }
+            ]
+          },
+          {
+            name: "湖南",
+            value: [
+              { name: "学生", value: 62 },
+              { name: "教师", value: 52 }
+            ]
+          },
+          {
+            name: "重庆",
+            value: [
+              { name: "学生", value: 47 },
+              { name: "教师", value: 44 }
+            ]
+          },
+          {
+            name: "四川",
+            value: [
+              { name: "学生", value: 65 },
+              { name: "教师", value: 60 }
+            ]
+          },
+          {
+            name: "贵州",
+            value: [
+              { name: "学生", value: 32 },
+              { name: "教师", value: 30 }
+            ]
+          },
+          {
+            name: "云南",
+            value: [
+              { name: "学生", value: 42 },
+              { name: "教师", value: 41 }
+            ]
+          },
+          {
+            name: "西藏",
+            value: [
+              { name: "学生", value: 5 },
+              { name: "教师", value: 4 }
+            ]
+          },
+          {
+            name: "陕西",
+            value: [
+              { name: "学生", value: 38 },
+              { name: "教师", value: 42 }
+            ]
+          },
+          {
+            name: "甘肃",
+            value: [
+              { name: "学生", value: 28 },
+              { name: "教师", value: 28 }
+            ]
+          },
+          {
+            name: "青海",
+            value: [
+              { name: "学生", value: 5 },
+              { name: "教师", value: 5 }
+            ]
+          },
+          {
+            name: "宁夏",
+            value: [
+              { name: "学生", value: 10 },
+              { name: "教师", value: 8 }
+            ]
+          },
+          {
+            name: "新疆",
+            value: [
+              { name: "学生", value: 36 },
+              { name: "教师", value: 31 }
+            ]
+          },
+          {
+            name: "广东",
+            value: [
+              { name: "学生", value: 63 },
+              { name: "教师", value: 60 }
+            ]
+          },
+          {
+            name: "广西",
+            value: [
+              { name: "学生", value: 29 },
+              { name: "教师", value: 30 }
+            ]
+          },
+          {
+            name: "海南",
+            value: [
+              { name: "学生", value: 8 },
+              { name: "教师", value: 6 }
+            ]
+          }
+        ];
+
+        /*获取地图数据*/
+        progressChart.showLoading();
+        var mapFeatures = echarts.getMap(mapName).geoJson.features;
+        progressChart.hideLoading();
+        mapFeatures.forEach(function(v) {
+          // 地区名称
+          var name = v.properties.name;
+          // 地区经纬度
+          geoCoordMap[name] = v.properties.cp;
+        });
+
+        // console.log("============geoCoordMap===================")
+        // console.log(geoCoordMap)
+        // console.log("================data======================")
+        console.log(data);
+        console.log(toolTipData);
+        var max = 480,
+          min = 9; // todo
+        var maxSize4Pin = 100,
+          minSize4Pin = 20;
+
+        var convertData = function(data) {
+          var res = [];
+          for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+              res.push({
+                name: data[i].name,
+                value: geoCoord.concat(data[i].value)
+              });
+            }
+          }
+          return res;
+        };
+        option = {
+          title: {
+            text: name_title,
+            x: "center",
+            textStyle: {
+              color: nameColor,
+              fontFamily: name_fontFamily,
+              fontSize: name_fontSize
+            }
+          },
+          tooltip: {
+            trigger: "item",
+            formatter: function(params) {
+              if (typeof params.value[2] == "undefined") {
+                var toolTiphtml = "";
+                for (var i = 0; i < toolTipData.length; i++) {
+                  if (params.name == toolTipData[i].name) {
+                    toolTiphtml += toolTipData[i].name + ":<br>";
+                    for (var j = 0; j < toolTipData[i].value.length; j++) {
+                      toolTiphtml +=
+                        toolTipData[i].value[j].name +
+                        ":" +
+                        toolTipData[i].value[j].value +
+                        "<br>";
+                    }
+                  }
+                }
+                console.log(toolTiphtml);
+                // console.log(convertData(data))
+                return toolTiphtml;
+              } else {
+                var toolTiphtml = "";
+                for (var i = 0; i < toolTipData.length; i++) {
+                  if (params.name == toolTipData[i].name) {
+                    toolTiphtml += toolTipData[i].name + ":<br>";
+                    for (var j = 0; j < toolTipData[i].value.length; j++) {
+                      toolTiphtml +=
+                        toolTipData[i].value[j].name +
+                        ":" +
+                        toolTipData[i].value[j].value +
+                        "<br>";
+                    }
+                  }
+                }
+                console.log(toolTiphtml);
+                // console.log(convertData(data))
+                return toolTiphtml;
+              }
+            }
+          },
+          // legend: {
+          //     orient: 'vertical',
+          //     y: 'bottom',
+          //     x: 'right',
+          //     data: ['credit_pm2.5'],
+          //     textStyle: {
+          //         color: '#fff'
+          //     }
+          // },
+          visualMap: {
+            show: true,
+            min: 0,
+            max: 200,
+            left: "left",
+            top: "bottom",
+            text: ["高", "低"], // 文本，默认为数值文本
+            calculable: true,
+            seriesIndex: [1],
+            inRange: {
+              // color: ["#3B5077", "#031525"] // 蓝黑
+              // color: ['#ffc0cb', '#800080'] // 红紫
+              // color: ['#3C3B3F', '#605C3C'] // 黑绿
+              // color: ["#0f0c29", "#302b63", "#24243e"] // 黑紫黑
+              // color: ["#23074d", "#cc5333"] // 紫红
+              // color: ["#00467F", "#A5CC82"] // 蓝绿
+              color: ["#1488CC", "#2B32B2"] // 浅蓝
+              // color: ['#00467F', '#A5CC82'] // 蓝绿
+              // color: ['#00467F', '#A5CC82'] // 蓝绿
+              // color: ['#00467F', '#A5CC82'] // 蓝绿
+              // color: ["#00467F", "#A5CC82"] // 蓝绿
+            }
+          },
+          /*工具按钮组*/
+          // toolbox: {
+          //     show: true,
+          //     orient: 'vertical',
+          //     left: 'right',
+          //     top: 'center',
+          //     feature: {
+          //         dataView: {
+          //             readOnly: false
+          //         },
+          //         restore: {},
+          //         saveAsImage: {}
+          //     }
+          // },
+          geo: {
+            show: true,
+            map: mapName,
+            label: {
+              normal: {
+                show: false
+              },
+              emphasis: {
+                show: false
+              }
+            },
+            roam: true,
+            itemStyle: {
+              normal: {
+                areaColor: "#031525",
+                borderColor: "#3B5077"
+              },
+              emphasis: {
+                areaColor: "#2B91B7"
+              }
+            }
+          },
+          series: [
+            {
+              name: "散点",
+              type: "scatter",
+              coordinateSystem: "geo",
+              data: convertData(data),
+              symbolSize: function(val) {
+                return val[2] / 10;
+              },
+              label: {
+                normal: {
+                  formatter: "{b}",
+                  position: "right",
+                  show: true
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              itemStyle: {
+                normal: {
+                  color: "#05C3F9"
+                }
+              }
+            },
+            {
+              type: "map",
+              map: mapName,
+              geoIndex: 0,
+              aspectScale: 0.75, //长宽比
+              showLegendSymbol: false, // 存在legend时显示
+              label: {
+                normal: {
+                  show: true
+                },
+                emphasis: {
+                  show: false,
+                  textStyle: {
+                    color: "#fff"
+                  }
+                }
+              },
+              roam: true,
+              itemStyle: {
+                normal: {
+                  areaColor: "#031525",
+                  borderColor: "#3B5077"
+                },
+                emphasis: {
+                  areaColor: "#2B91B7"
+                }
+              },
+              animation: false,
+              data: data
+            },
+            // {
+            //   name: "点",
+            //   type: "scatter",
+            //   coordinateSystem: "geo",
+            //   symbol: "pin", //气泡
+            //   symbolSize: function(val) {
+            //     var a = (maxSize4Pin - minSize4Pin) / (max - min);
+            //     var b = minSize4Pin - a * min;
+            //     b = maxSize4Pin - a * max;
+            //     return a * val[2] + b;
+            //   },
+            //   label: {
+            //     normal: {
+            //       show: true,
+            //       textStyle: {
+            //         color: "#fff",
+            //         fontSize: 9
+            //       }
+            //     }
+            //   },
+            //   itemStyle: {
+            //     normal: {
+            //       color: "#F62157" //标志颜色
+            //     }
+            //   },
+            //   zlevel: 6,
+            //   data: convertData(data)
+            // },
+            {
+              name: "Top 5",
+              type: "effectScatter",
+              coordinateSystem: "geo",
+              data: convertData(
+                data
+                  .sort(function(a, b) {
+                    return b.value - a.value;
+                  })
+                  .slice(0, 5)
+              ),
+              symbolSize: function(val) {
+                return val[2] / 10;
+              },
+              showEffectOn: "render",
+              rippleEffect: {
+                brushType: "stroke"
+              },
+              hoverAnimation: true,
+              label: {
+                normal: {
+                  formatter: "{b}",
+                  position: "right",
+                  show: true
+                }
+              },
+              itemStyle: {
+                normal: {
+                  color: "#e83132",
+                  shadowBlur: 10,
+                  shadowColor: "#e83132"
+                }
+              },
+              zlevel: 1
+            }
+          ]
+        };
+        chinaMapChart.setOption(option);
+
+        //学生感冒趋势
+        var studentColdTrendOption = {
+          grid: {
+            top: 10,
+            bottom: 20,
+            right: 20,
+            borderColor: "#fff"
+          },
+          xAxis: {
+            type: "category",
+            data: ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7"],
+            boundaryGap: false,
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          yAxis: {
+            type: "value",
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          series: [
+            {
+              data: [5, 3, 6, 5, 7, 4, 1],
+              type: "line"
+            }
+          ]
+        };
+        studentColdTrendChart.setOption(studentColdTrendOption);
+
+        //计划返厦人员趋势
+        var planBackTrendOption = {
+          grid: {
+            top: 10,
+            bottom: 20,
+            right: 20,
+            borderColor: "#fff"
+          },
+          xAxis: {
+            type: "category",
+            data: ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7"],
+            boundaryGap: false,
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          yAxis: {
+            type: "value",
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          series: [
+            {
+              data: [5, 3, 6, 5, 7, 4, 1],
+              type: "line"
+            }
+          ]
+        };
+        planBackTrendChart.setOption(planBackTrendOption);
+
+        //返厦人员趋势
+        var backTrendOption = {
+          grid: {
+            top: 10,
+            bottom: 20,
+            right: 20,
+            borderColor: "#fff"
+          },
+          xAxis: {
+            type: "category",
+            data: ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7"],
+            boundaryGap: false,
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          yAxis: {
+            type: "value",
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          series: [
+            {
+              data: [5, 3, 6, 5, 7, 4, 1],
+              type: "line"
+            }
+          ]
+        };
+        backTrendChart.setOption(backTrendOption);
+
+        // 湖北返厦师生分布
+        var hubeiBackBarOption = {
+          xAxis: {
+            type: "value",
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          yAxis: {
+            type: "category",
+            data: ["巴西", "印尼", "美国", "印度", "中国", "世界"],
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          series: [
+            {
+              type: "bar",
+              data: [121, 32, 43, 544, 445, 344]
+            }
+          ]
+        };
+        hubeiBackBarChart.setOption(hubeiBackBarOption);
+
+        var keyAreasBarOption = {
+          legend: {
+            textStyle: {
+              color: "#fff"
+            }
+          },
+          tooltip: {},
+          dataset: {
+            source: [
+              ["city", "学生", "教师"],
+              ["武汉", 43.3, 85.8],
+              ["深圳", 83.1, 73.4],
+              ["广州", 86.4, 65.2],
+              ["浙江", 72.4, 53.9]
+            ]
+          },
+          xAxis: {
+            type: "category",
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          yAxis: {
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          series: [
+            {
+              type: "bar",
+              barWidth: 15,
+              itemStyle: {
+                color: "#ff0000"
+              }
+            },
+            {
+              type: "bar",
+              barWidth: 15,
+              itemStyle: {
+                color: "#2FC25B"
+              }
+            }
+          ]
+        };
+        keyAreasBackBarChart.setOption(keyAreasBarOption);
+      };
+    </script>
   </body>
 </html>
