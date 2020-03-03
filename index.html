@@ -14,26 +14,61 @@
     <header>
       <img src="./images/head_bg.png" />
       <h1>同安教育疫情防控速报</h1>
+      <!-- 最新上报滚动消息 -->
+      <div class="scroll-message" flex="main:center" flex-box="0">
+        <ul class="_container" id="scroll_message">
+          <li>最新消息：嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻</li>
+          <li>最新消息：嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻</li>
+          <li>最新消息：嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻</li>
+          <li>最新消息：嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻</li>
+          <li>最新消息：嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻(第五个)</li>
+        </ul>
+      </div>
     </header>
     <div class="main" flex="main:justify cross:stretch box:justify">
       <div class="left" flex="main:justify dir:top">
-        <div class="module-border" flex-box="1">
+        <div class="module-border" flex-box="0" style="height: 140px;">
           <div class="title" flex="main:center">
-            <p>全区学生感冒发烧趋势</p>
+            <p>重点关注人员数据</p>
           </div>
-          <div id="student_cold_trend"></div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">人员类型</div>
+            <div flex-box="0">在同安</div>
+            <div flex-box="0">不在同安</div>
+          </div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">湖北籍去过湖北</div>
+            <div flex-box="0">227</div>
+            <div flex-box="0">227</div>
+          </div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">非湖北籍去过湖北</div>
+            <div flex-box="0">227</div>
+            <div flex-box="0">227</div>
+          </div>
+          <div class="focus-on-title" flex="main:justify cross:center">
+            <div flex-box="0">湖北籍未去湖北</div>
+            <div flex-box="0">227</div>
+            <div flex-box="0">227</div>
+          </div>
         </div>
         <div class="module-border" flex-box="1">
           <div class="title" flex="main:center">
-            <p>计划返厦人员趋势</p>
+            <p>湖北返厦人员趋势</p>
           </div>
-          <div id="plan_back_trend"></div>
+          <div id="hubei_back_trend"></div>
         </div>
         <div class="module-border" flex-box="1">
           <div class="title" flex="main:center">
-            <p>返厦人员趋势</p>
+            <p>在湖北未返厦师生分布</p>
           </div>
-          <div id="back_trend"></div>
+          <div id="hubei_unback_trend"></div>
+        </div>
+        <div class="module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>湖北返厦师生分布</p>
+          </div>
+          <div id="hubei_back_bar"></div>
         </div>
       </div>
       <div class="middle" flex="main:justify dir:top">
@@ -42,36 +77,75 @@
           flex="main:center"
           flex-box="0"
         >
+          <div class="plan-back-trend">
+            <div class="total-number" flex="main:center">
+              <div class="total-item">
+                <p class="title">同安学生总数</p>
+                <p class="value">132464</p>
+              </div>
+              <div class="total-item">
+                <p class="title">同安学生总数</p>
+                <p class="value">132464</p>
+              </div>
+            </div>
+            <div id="back_trend"></div>
+          </div>
           <div class="reported-persons-type">
             <h3>累计上报学生人次</h3>
-            <p class="total-number" style="color: #45aaf2;">2346745</p>
-            <p class="today-number">今日 3256</p>
-            <h4>确诊病例</h4>
-            <p class="case-number" style="color: #e83132;">0</p>
+            <p class="total-number">2346745</p>
+            <p class="today-number">今日学生上报</p>
+            <div
+              id="today_student_pie"
+              style="width: 100%;height: 180px;"
+            ></div>
           </div>
           <div class="reported-persons-type">
             <h3>累计上报教师人次</h3>
-            <p class="total-number" style="color: #ccc;">16465</p>
-            <p class="today-number">今日 265</p>
-            <h4>疑似病例</h4>
-            <p class="case-number" style="color: #ec9217;">0</p>
-          </div>
-        </div>
-        <!-- 返厦进度条 -->
-        <div class="back-progress-bar module-border" flex-box="0">
-          <div id="back_progress_bar"></div>
-          <div class="back-progress-bar-title">
-            <p>公办中小学：</p>
-            <p>公办幼儿园：</p>
-            <p>民办幼儿园：</p>
+            <p class="total-number">16465</p>
+            <p class="today-number">今日教师上报</p>
+            <div
+              id="today_teacher_pie"
+              style="width: 100%;height: 180px;"
+            ></div>
           </div>
         </div>
         <!-- 全国地图 -->
         <div class="china-map module-border" flex-box="1">
           <div id="china_map_container"></div>
         </div>
+        <!-- 累计返厦 -->
+        <div class="cumulative module-border" flex-box="0" flex="main:justify">
+          <div class="cumulative-back-personals">
+            <p class="title">累计返厦总人数：</p>
+            <p class="value">5000</p>
+          </div>
+          <div class="cumulative-back-personals">
+            <p class="title">预计今明日返厦人数：</p>
+            <p class="value" style="font-size: 20px;">今日：366</p>
+            <p class="value" style="font-size: 20px;">明日：366</p>
+          </div>
+          <div class="schools-back-progress">
+            <p class="title">公办校返厦进度</p>
+            <div
+              id="public_back_progress"
+              style="width: 100%;height: 100px;"
+            ></div>
+          </div>
+          <div class="schools-back-progress">
+            <p class="title">民办校返厦进度</p>
+            <div
+              id="private_back_progress"
+              style="width: 100%;height: 100px;"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="right" flex="main:justify dir:top">
         <!-- 上报学校列表数据 -->
-        <div class="reported-schools-list module-border" flex-box="0">
+        <div class="reported-schools-list module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>全区学生感冒发烧趋势</p>
+          </div>
           <table cellpadding="0" cellspacing="0">
             <thead>
               <tr>
@@ -111,41 +185,56 @@
                 <td>99%</td>
                 <td>100</td>
               </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>XXXXX学校</td>
+                <td>99</td>
+                <td>1</td>
+                <td>99%</td>
+                <td>100</td>
+              </tr>
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="right" flex="main:justify dir:top">
-        <div class="module-border" flex-box="0">
-          <div class="title" flex="main:center">
-            <p>重点关注人员数据</p>
-          </div>
-          <div class="focus-on-title" flex="main:justify cross:center">
-            <div flex-box="0">人员类型</div>
-            <div flex-box="0">在同安</div>
-            <div flex-box="0">不在同安</div>
-          </div>
-          <div class="focus-on-title" flex="main:justify cross:center">
-            <div flex-box="0">湖北籍去过湖北</div>
-            <div flex-box="0">227</div>
-            <div flex-box="0">227</div>
-          </div>
-          <div class="focus-on-title" flex="main:justify cross:center">
-            <div flex-box="0">非湖北籍去过湖北</div>
-            <div flex-box="0">227</div>
-            <div flex-box="0">227</div>
-          </div>
-          <div class="focus-on-title" flex="main:justify cross:center">
-            <div flex-box="0">湖北籍未去湖北</div>
-            <div flex-box="0">227</div>
-            <div flex-box="0">227</div>
-          </div>
-        </div>
         <div class="module-border" flex-box="1">
           <div class="title" flex="main:center">
-            <p>湖北返厦师生分布</p>
+            <p>全区学生感冒发烧趋势</p>
           </div>
-          <div id="hubei_back_bar"></div>
+          <div id="student_cold_trend"></div>
         </div>
         <div class="module-border" flex-box="1">
           <div class="title" flex="main:center">
@@ -153,100 +242,56 @@
           </div>
           <div id="key_areas_back_bar"></div>
         </div>
+        <div class="module-border" flex-box="1">
+          <div class="title" flex="main:center">
+            <p>预计返厦趋势</p>
+          </div>
+          <div id="plan_back_bar"></div>
+        </div>
       </div>
     </div>
     <script src="./js/echarts.min.js"></script>
     <script src="./js/china.js"></script>
+    <script src="./js/scroll.js"></script>
     <script>
       window.onload = function() {
-        // 返厦进度条
-        var progressChart = echarts.init(
-          document.getElementById("back_progress_bar")
-        );
-        // 全国地图
-        var chinaMapChart = echarts.init(
-          document.getElementById("china_map_container")
-        );
-
-        // 学生感冒趋势
-        var studentColdTrendChart = echarts.init(
-          document.getElementById("student_cold_trend")
-        );
-
-        // 计划返厦人员趋势
-        var planBackTrendChart = echarts.init(
-          document.getElementById("plan_back_trend")
-        );
+        myScroll.upScroll("scroll_message", "-26px", 3000);
 
         // 返厦人员趋势
         var backTrendChart = echarts.init(
           document.getElementById("back_trend")
         );
-
-        // 湖北返厦师生分布
-        var hubeiBackBarChart = echarts.init(
-          document.getElementById("hubei_back_bar")
-        );
-
-        // 重点区域返厦师生信息
-        var keyAreasBackBarChart = echarts.init(
-          document.getElementById("key_areas_back_bar")
-        );
-
-        var backProgressOption = {
-          grid: {
-            show: false,
-            left: "80",
-            right: "2%",
-            top: 0,
-            bottom: 0,
-            height: "110px"
-          },
+        var backTrendOptions = {
           legend: {
             icon: "circle",
-            itemWidth: 7,
-            itemHeight: 7,
-            itemGap: 50,
+            data: ["学生", "教师"],
             textStyle: {
               color: "#fff"
-            },
-            data: [
-              {
-                name: "已返厦"
-              },
-              {
-                name: "未返厦"
-              }
-            ]
+            }
+          },
+          grid: {
+            top: 30,
+            bottom: 20,
+            right: 20,
+            borderColor: "#fff"
           },
           xAxis: [
             {
-              type: "value",
-              axisTick: {
-                show: false
-              },
+              type: "category",
+              boundaryGap: false,
+              data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
               axisLine: {
-                show: false
-              },
-              axisLabel: {
-                show: false
-              },
-              splitLine: {
-                show: false
+                lineStyle: {
+                  color: "#fff"
+                }
               }
             }
           ],
           yAxis: [
             {
-              data: [""],
-              axisTick: {
-                show: false
-              },
+              type: "value",
               axisLine: {
-                show: false
-              },
-              axisLabel: {
-                textStyle: {
+                lineStyle: {
                   color: "#fff"
                 }
               }
@@ -254,273 +299,194 @@
           ],
           series: [
             {
-              name: "已返厦",
-              type: "bar",
-              barWidth: 8,
-              barGap: "200%",
-              stack: "公办中小学返厦比例",
-              label: {
-                normal: {
-                  borderWidth: 5,
-                  align: "center",
-                  borderRadius: 1,
-                  borderColor: "#2FC25B",
-                  backgroundColor: "#2FC25B",
-                  show: true,
-                  formatter: "{c}%",
-                  color: "#fff"
-                }
-              },
-              itemStyle: {
-                color: "#2FC25B"
-              },
-              data: [
-                {
-                  value: 70,
-                  itemStyle: {
-                    normal: {
-                      color: {
-                        type: "bar",
-                        colorStops: [
-                          {
-                            offset: 0,
-                            color: "#2FC25B" // 0% 处的颜色
-                          },
-                          {
-                            offset: 1,
-                            color: "#2FC25B" // 100% 处的颜色
-                          }
-                        ],
-                        globalCoord: false // 缺省为 false
-                      }
-                    }
-                  }
-                }
-              ]
+              name: "学生",
+              type: "line",
+              stack: "总量",
+              areaStyle: {},
+              data: [120, 132, 101, 134, 90, 230, 210]
             },
             {
-              name: "未返厦",
-              type: "bar",
-              barWidth: 8,
-              stack: "公办中小学返厦比例",
-              itemStyle: {
-                color: "#1890FF"
-              },
-              label: {
-                normal: {
-                  borderWidth: 5,
-                  align: "center",
-                  borderRadius: 1,
-                  borderColor: "#1890FF",
-                  backgroundColor: "#1890FF",
-                  show: true,
-                  formatter: "{c}%",
-                  color: "#fff"
-                }
-              },
-              data: [
-                {
-                  value: 30,
-                  itemStyle: {
-                    normal: {
-                      color: {
-                        type: "bar",
-                        colorStops: [
-                          {
-                            offset: 0,
-                            color: "#1890FF" // 0% 处的颜色
-                          },
-                          {
-                            offset: 1,
-                            color: "#1890FF" // 100% 处的颜色
-                          }
-                        ],
-                        globalCoord: false // 缺省为 false
-                      }
-                    }
-                  }
-                }
-              ]
-            },
+              name: "教师",
+              type: "line",
+              stack: "总量",
+              areaStyle: {},
+              data: [220, 182, 191, 234, 290, 330, 310]
+            }
+          ]
+        };
+        backTrendChart.setOption(backTrendOptions);
+
+        // 今日学生上报
+        var todayStudentPie = echarts.init(
+          document.getElementById("today_student_pie")
+        );
+        var todayStudentPieOptions = {
+          legend: {
+            orient: "horizontal",
+            bottom: 10,
+            data: ["已上报", "未上报"],
+            textStyle: {
+              color: "#fff"
+            }
+          },
+          series: [
             {
-              name: "已返厦",
-              type: "bar",
-              barWidth: 8,
-              stack: "公办幼儿园返厦比例",
+              name: "上报情况",
+              type: "pie",
+              radius: ["30%", "50%"],
+              avoidLabelOverlap: false,
               label: {
                 normal: {
-                  borderWidth: 5,
-                  align: "center",
-                  borderRadius: 1,
-                  borderColor: "#2FC25B",
-                  backgroundColor: "#2FC25B",
+                  show: false,
+                  position: "center"
+                },
+                emphasis: {
                   show: true,
-                  formatter: "{c}%",
-                  color: "#fff"
-                }
-              },
-              itemStyle: {
-                color: "#2FC25B"
-              },
-              data: [
-                {
-                  value: 70,
-                  itemStyle: {
-                    normal: {
-                      color: {
-                        type: "bar",
-                        colorStops: [
-                          {
-                            offset: 0,
-                            color: "#2FC25B" // 0% 处的颜色
-                          },
-                          {
-                            offset: 1,
-                            color: "#2FC25B" // 100% 处的颜色
-                          }
-                        ],
-                        globalCoord: false // 缺省为 false
-                      }
-                    }
+                  textStyle: {
+                    fontSize: "12",
+                    fontWeight: "bold"
                   }
                 }
-              ]
-            },
-            {
-              name: "未返厦",
-              type: "bar",
-              barWidth: 8,
-              stack: "公办幼儿园返厦比例",
-              label: {
+              },
+              labelLine: {
                 normal: {
-                  borderWidth: 5,
-                  align: "center",
-                  borderRadius: 1,
-                  borderColor: "#1890FF",
-                  backgroundColor: "#1890FF",
-                  show: true,
-                  formatter: "{c}%",
-                  color: "#fff"
+                  show: false
                 }
-              },
-              itemStyle: {
-                color: "#1890FF"
               },
               data: [
-                {
-                  value: 30,
-                  itemStyle: {
-                    normal: {
-                      color: {
-                        type: "bar",
-                        colorStops: [
-                          {
-                            offset: 0,
-                            color: "#1890FF" // 0% 处的颜色
-                          },
-                          {
-                            offset: 1,
-                            color: "#1890FF" // 100% 处的颜色
-                          }
-                        ],
-                        globalCoord: false // 缺省为 false
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              name: "已返厦",
-              type: "bar",
-              barWidth: 8,
-              stack: "民办幼儿园返厦比例",
-              label: {
-                normal: {
-                  borderWidth: 5,
-                  align: "center",
-                  borderRadius: 1,
-                  borderColor: "#2FC25B",
-                  backgroundColor: "#2FC25B",
-                  show: true,
-                  formatter: "{c}%",
-                  color: "#fff"
-                }
-              },
-              itemStyle: {
-                color: "#2FC25B"
-              },
-              data: [
-                {
-                  value: 70,
-                  itemStyle: {
-                    normal: {
-                      color: {
-                        type: "bar",
-                        colorStops: [
-                          {
-                            offset: 0,
-                            color: "#2FC25B" // 0% 处的颜色
-                          },
-                          {
-                            offset: 1,
-                            color: "#2FC25B" // 100% 处的颜色
-                          }
-                        ],
-                        globalCoord: false // 缺省为 false
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              name: "未返厦",
-              type: "bar",
-              barWidth: 8,
-              stack: "民办幼儿园返厦比例",
-              label: {
-                normal: {
-                  borderWidth: 5,
-                  align: "center",
-                  borderRadius: 1,
-                  borderColor: "#1890FF",
-                  backgroundColor: "#1890FF",
-                  show: true,
-                  formatter: "{c}%",
-                  color: "#fff"
-                }
-              },
-              itemStyle: {
-                color: "#1890FF"
-              },
-              data: [
-                {
-                  value: 30,
-                  itemStyle: {
-                    normal: {
-                      color: {
-                        type: "bar",
-                        colorStops: [
-                          {
-                            offset: 0,
-                            color: "#1890FF" // 0% 处的颜色
-                          },
-                          {
-                            offset: 1,
-                            color: "#1890FF" // 100% 处的颜色
-                          }
-                        ],
-                        globalCoord: false // 缺省为 false
-                      }
-                    }
-                  }
-                }
+                { value: 123, name: "已上报" },
+                { value: 100, name: "未上报" }
               ]
             }
           ]
         };
-        progressChart.setOption(backProgressOption);
+        todayStudentPie.setOption(todayStudentPieOptions);
+        // 今日教师上报
+        var todayTeacherTie = echarts.init(
+          document.getElementById("today_teacher_pie")
+        );
+        var todayTeacherTieOptions = {
+          legend: {
+            orient: "horizontal",
+            bottom: 10,
+            data: ["已上报", "未上报"],
+            textStyle: {
+              color: "#fff"
+            }
+          },
+          series: [
+            {
+              name: "上报情况",
+              type: "pie",
+              radius: ["30%", "50%"],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: false,
+                  position: "center"
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: "12",
+                    fontWeight: "bold"
+                  }
+                }
+              },
+              labelLine: {
+                normal: {
+                  show: false
+                }
+              },
+              data: [
+                { value: 123, name: "已上报" },
+                { value: 100, name: "未上报" }
+              ]
+            }
+          ]
+        };
+        todayTeacherTie.setOption(todayTeacherTieOptions);
+
+        // 公办校返厦进度
+        var publicBackProgress = echarts.init(
+          document.getElementById("public_back_progress")
+        );
+
+        var publicBackProgressOptions = {
+          series: [
+            {
+              name: "返厦进度",
+              type: "pie",
+              radius: ["50%", "80%"],
+              center: ["25%", "50%"],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: false,
+                  position: "center"
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: "12",
+                    fontWeight: "bold"
+                  }
+                }
+              },
+              labelLine: {
+                normal: {
+                  show: false
+                }
+              },
+              data: [
+                { value: 123, name: "已返厦" },
+                { value: 100, name: "未返厦" }
+              ]
+            }
+          ]
+        };
+
+        publicBackProgress.setOption(publicBackProgressOptions);
+        // 民办校返厦进度
+        var privateBackProgress = echarts.init(
+          document.getElementById("private_back_progress")
+        );
+
+        var privateBackProgressOptions = {
+          series: [
+            {
+              name: "返厦进度",
+              type: "pie",
+              radius: ["50%", "80%"],
+              center: ["25%", "50%"],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: false,
+                  position: "center"
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: "12",
+                    fontWeight: "bold"
+                  }
+                }
+              },
+              labelLine: {
+                normal: {
+                  show: false
+                }
+              },
+              data: [
+                { value: 123, name: "已返厦" },
+                { value: 100, name: "未返厦" }
+              ]
+            }
+          ]
+        };
+
+        privateBackProgress.setOption(privateBackProgressOptions);
 
         var name_title = "累计返厦人员位置分布";
         var nameColor = "#fff";
@@ -560,6 +526,11 @@
           { name: "广西", value: 59 },
           { name: "海南", value: 14 }
         ];
+
+        // 全国地图
+        var chinaMapChart = echarts.init(
+          document.getElementById("china_map_container")
+        );
 
         var geoCoordMap = {};
         var toolTipData = [
@@ -783,9 +754,9 @@
         ];
 
         /*获取地图数据*/
-        progressChart.showLoading();
+        chinaMapChart.showLoading();
         var mapFeatures = echarts.getMap(mapName).geoJson.features;
-        progressChart.hideLoading();
+        chinaMapChart.hideLoading();
         mapFeatures.forEach(function(v) {
           // 地区名称
           var name = v.properties.name;
@@ -1055,8 +1026,75 @@
           ]
         };
         chinaMapChart.setOption(option);
+        // 湖北返厦人员趋势
+        var hubeiBackTrendChart = echarts.init(
+          document.getElementById("hubei_back_trend")
+        );
+        var hubeiBackTrendOption = {
+          legend: {
+            icon: "circle",
+            data: ["邮件营销", "联盟广告", "视频广告", "直接访问"],
+            textStyle: {
+              color: "#fff"
+            }
+          },
+          grid: {
+            top: 40,
+            right: 20,
+            bottom: 25,
+            borderColor: "#fff"
+          },
+          xAxis: {
+            type: "category",
+            boundaryGap: false,
+            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          yAxis: {
+            type: "value",
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          series: [
+            {
+              name: "邮件营销",
+              type: "line",
+              stack: "总量",
+              data: [120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+              name: "联盟广告",
+              type: "line",
+              stack: "总量",
+              data: [220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+              name: "视频广告",
+              type: "line",
+              stack: "总量",
+              data: [150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+              name: "直接访问",
+              type: "line",
+              stack: "总量",
+              data: [320, 332, 301, 334, 390, 330, 320]
+            }
+          ]
+        };
+        hubeiBackTrendChart.setOption(hubeiBackTrendOption);
 
-        //学生感冒趋势
+        // 学生感冒趋势
+        var studentColdTrendChart = echarts.init(
+          document.getElementById("student_cold_trend")
+        );
         var studentColdTrendOption = {
           grid: {
             top: 10,
@@ -1091,18 +1129,33 @@
         };
         studentColdTrendChart.setOption(studentColdTrendOption);
 
-        //计划返厦人员趋势
-        var planBackTrendOption = {
+        // 在湖北未返厦师生分布
+        var hubeiUnbackTrendChart = echarts.init(
+          document.getElementById("hubei_unback_trend")
+        );
+        var hubeiUnbackTrendOption = {
+          legend: {
+            textStyle: {
+              color: "#fff"
+            }
+          },
           grid: {
-            top: 10,
-            bottom: 20,
+            top: 30,
             right: 20,
+            bottom: 25,
             borderColor: "#fff"
+          },
+          dataset: {
+            source: [
+              ["city", "学生", "教师"],
+              ["武汉", 43.3, 85.8],
+              ["深圳", 83.1, 73.4],
+              ["广州", 86.4, 65.2],
+              ["浙江", 72.4, 53.9]
+            ]
           },
           xAxis: {
             type: "category",
-            data: ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7"],
-            boundaryGap: false,
             axisLine: {
               lineStyle: {
                 color: "#fff"
@@ -1110,7 +1163,6 @@
             }
           },
           yAxis: {
-            type: "value",
             axisLine: {
               lineStyle: {
                 color: "#fff"
@@ -1119,50 +1171,34 @@
           },
           series: [
             {
-              data: [5, 3, 6, 5, 7, 4, 1],
-              type: "line"
-            }
-          ]
-        };
-        planBackTrendChart.setOption(planBackTrendOption);
-
-        //返厦人员趋势
-        var backTrendOption = {
-          grid: {
-            top: 10,
-            bottom: 20,
-            right: 20,
-            borderColor: "#fff"
-          },
-          xAxis: {
-            type: "category",
-            data: ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7"],
-            boundaryGap: false,
-            axisLine: {
-              lineStyle: {
-                color: "#fff"
+              type: "bar",
+              barWidth: 15,
+              itemStyle: {
+                color: "#ff0000"
               }
-            }
-          },
-          yAxis: {
-            type: "value",
-            axisLine: {
-              lineStyle: {
-                color: "#fff"
-              }
-            }
-          },
-          series: [
+            },
             {
-              data: [5, 3, 6, 5, 7, 4, 1],
-              type: "line"
+              type: "bar",
+              barWidth: 15,
+              itemStyle: {
+                color: "#2FC25B"
+              }
             }
           ]
         };
-        backTrendChart.setOption(backTrendOption);
+        hubeiUnbackTrendChart.setOption(hubeiUnbackTrendOption);
 
         // 湖北返厦师生分布
+        var hubeiBackBarChart = echarts.init(
+          document.getElementById("hubei_back_bar")
+        );
         var hubeiBackBarOption = {
+          grid: {
+            top: 30,
+            right: 20,
+            bottom: 25,
+            borderColor: "#fff"
+          },
           xAxis: {
             type: "value",
             axisLine: {
@@ -1183,19 +1219,31 @@
           series: [
             {
               type: "bar",
-              data: [121, 32, 43, 544, 445, 344]
+              data: [121, 32, 43, 544, 445, 344],
+              itemStyle: {
+                color: "#188df0"
+              }
             }
           ]
         };
         hubeiBackBarChart.setOption(hubeiBackBarOption);
 
+        // 重点区域返厦师生信息
+        var keyAreasBackBarChart = echarts.init(
+          document.getElementById("key_areas_back_bar")
+        );
         var keyAreasBarOption = {
           legend: {
             textStyle: {
               color: "#fff"
             }
           },
-          tooltip: {},
+          grid: {
+            top: 30,
+            right: 20,
+            bottom: 25,
+            borderColor: "#fff"
+          },
           dataset: {
             source: [
               ["city", "学生", "教师"],
@@ -1238,6 +1286,65 @@
           ]
         };
         keyAreasBackBarChart.setOption(keyAreasBarOption);
+
+        // 预计返厦趋势
+        var planBackBarChart = echarts.init(
+          document.getElementById("plan_back_bar")
+        );
+        var planBackBarOption = {
+          legend: {
+            textStyle: {
+              color: "#fff"
+            }
+          },
+          grid: {
+            top: 30,
+            right: 20,
+            bottom: 25,
+            borderColor: "#fff"
+          },
+          dataset: {
+            source: [
+              ["city", "学生", "教师"],
+              ["武汉", 43.3, 85.8],
+              ["深圳", 83.1, 73.4],
+              ["广州", 86.4, 65.2],
+              ["浙江", 72.4, 53.9]
+            ]
+          },
+          xAxis: {
+            type: "category",
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          yAxis: {
+            axisLine: {
+              lineStyle: {
+                color: "#fff"
+              }
+            }
+          },
+          series: [
+            {
+              type: "bar",
+              barWidth: 15,
+              itemStyle: {
+                color: "#ff0000"
+              }
+            },
+            {
+              type: "bar",
+              barWidth: 15,
+              itemStyle: {
+                color: "#2FC25B"
+              }
+            }
+          ]
+        };
+        planBackBarChart.setOption(planBackBarOption);
       };
     </script>
   </body>
