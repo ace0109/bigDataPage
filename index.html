@@ -84,7 +84,7 @@
                 <p class="value">132464</p>
               </div>
               <div class="total-item">
-                <p class="title">同安学生总数</p>
+                <p class="title">同安教师总数</p>
                 <p class="value">132464</p>
               </div>
             </div>
@@ -96,7 +96,7 @@
             <p class="today-number">今日学生上报</p>
             <div
               id="today_student_pie"
-              style="width: 100%;height: 180px;"
+              style="width: 100%;height: 150px;"
             ></div>
           </div>
           <div class="reported-persons-type">
@@ -105,7 +105,7 @@
             <p class="today-number">今日教师上报</p>
             <div
               id="today_teacher_pie"
-              style="width: 100%;height: 180px;"
+              style="width: 100%;height: 150px;"
             ></div>
           </div>
         </div>
@@ -114,7 +114,7 @@
           <div id="china_map_container"></div>
         </div>
         <!-- 累计返厦 -->
-        <div class="cumulative module-border" flex-box="0" flex="main:justify">
+        <div class="cumulative" flex-box="0" flex="main:justify">
           <div class="cumulative-back-personals">
             <p class="title">累计返厦总人数：</p>
             <p class="value">5000</p>
@@ -128,14 +128,14 @@
             <p class="title">公办校返厦进度</p>
             <div
               id="public_back_progress"
-              style="width: 100%;height: 100px;"
+              style="width: 100%;height: 60px;"
             ></div>
           </div>
           <div class="schools-back-progress">
             <p class="title">民办校返厦进度</p>
             <div
               id="private_back_progress"
-              style="width: 100%;height: 100px;"
+              style="width: 100%;height: 60px;"
             ></div>
           </div>
         </div>
@@ -144,91 +144,96 @@
         <!-- 上报学校列表数据 -->
         <div class="reported-schools-list module-border" flex-box="1">
           <div class="title" flex="main:center">
-            <p>全区学生感冒发烧趋势</p>
+            <p>各校上报情况</p>
           </div>
-          <table cellpadding="0" cellspacing="0">
-            <thead>
-              <tr>
-                <th>学校</th>
-                <th>上报数</th>
-                <th>未上报</th>
-                <th>上报率</th>
-                <th>总数</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>XXXXX学校</td>
-                <td>99</td>
-                <td>1</td>
-                <td>99%</td>
-                <td>100</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="reported-list-title" flex="main:justify">
+            <div flex-box="1">学校</div>
+            <div flex-box="0" style="width: 80px;">上报数</div>
+            <div flex-box="0" style="width: 80px;">未上报</div>
+            <div flex-box="0" style="width: 80px;">上报率</div>
+            <div flex-box="0" style="width: 80px;">总数</div>
+          </div>
+          <div id="scroll_box" class="reported-list-box">
+            <div id="reported_list" class="reported-list">
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+              <div class="reported-list-item" flex="main:justify">
+                <div flex-box="1">某某某某某某某某某某某某某某学校</div>
+                <div flex-box="0" style="width: 80px;">123</div>
+                <div flex-box="0" style="width: 80px;">45</div>
+                <div flex-box="0" style="width: 80px;">60%</div>
+                <div flex-box="0" style="width: 80px;">456</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="module-border" flex-box="1">
           <div class="title" flex="main:center">
@@ -255,6 +260,8 @@
     <script src="./js/scroll.js"></script>
     <script>
       window.onload = function() {
+        var colors = ["#ED7D31", "#3155A5", "#1890FF", "#2FC25B"];
+
         myScroll.upScroll("scroll_message", "-26px", 3000);
 
         // 返厦人员趋势
@@ -262,15 +269,27 @@
           document.getElementById("back_trend")
         );
         var backTrendOptions = {
+          title: {
+            text: "返厦人员趋势",
+            width: "100%",
+            left: "center",
+            textStyle: {
+              color: "#fff",
+              fontWeight: 500,
+              fontSize: 14
+            }
+          },
           legend: {
+            right: 0,
             icon: "circle",
+            itemWidth: 10,
             data: ["学生", "教师"],
             textStyle: {
               color: "#fff"
             }
           },
           grid: {
-            top: 30,
+            top: 50,
             bottom: 20,
             right: 20,
             borderColor: "#fff"
@@ -280,7 +299,11 @@
               type: "category",
               boundaryGap: false,
               data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+              axisTick: {
+                show: false
+              },
               axisLine: {
+                show: false,
                 lineStyle: {
                   color: "#fff"
                 }
@@ -291,12 +314,20 @@
             {
               type: "value",
               axisLine: {
+                show: false,
                 lineStyle: {
                   color: "#fff"
                 }
+              },
+              axisTick: {
+                show: false
+              },
+              splitLine: {
+                show: false
               }
             }
           ],
+          color: colors,
           series: [
             {
               name: "学生",
@@ -329,6 +360,7 @@
               color: "#fff"
             }
           },
+          color: colors,
           series: [
             {
               name: "上报情况",
@@ -374,6 +406,7 @@
               color: "#fff"
             }
           },
+          color: colors,
           series: [
             {
               name: "上报情况",
@@ -417,7 +450,7 @@
             {
               name: "返厦进度",
               type: "pie",
-              radius: ["50%", "80%"],
+              radius: ["60%", "90%"],
               center: ["25%", "50%"],
               avoidLabelOverlap: false,
               label: {
@@ -438,6 +471,7 @@
                   show: false
                 }
               },
+              color: colors,
               data: [
                 { value: 123, name: "已返厦" },
                 { value: 100, name: "未返厦" }
@@ -457,7 +491,7 @@
             {
               name: "返厦进度",
               type: "pie",
-              radius: ["50%", "80%"],
+              radius: ["60%", "90%"],
               center: ["25%", "50%"],
               avoidLabelOverlap: false,
               label: {
@@ -478,6 +512,7 @@
                   show: false
                 }
               },
+              color: colors,
               data: [
                 { value: 123, name: "已返厦" },
                 { value: 100, name: "未返厦" }
@@ -1048,7 +1083,11 @@
             type: "category",
             boundaryGap: false,
             data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+            axisTick: {
+              show: false
+            },
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
@@ -1057,11 +1096,19 @@
           yAxis: {
             type: "value",
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
             }
           },
+          color: colors,
           series: [
             {
               name: "邮件营销",
@@ -1106,7 +1153,11 @@
             type: "category",
             data: ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7"],
             boundaryGap: false,
+            axisTick: {
+              show: false
+            },
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
@@ -1115,11 +1166,19 @@
           yAxis: {
             type: "value",
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
             }
           },
+          color: colors,
           series: [
             {
               data: [5, 3, 6, 5, 7, 4, 1],
@@ -1156,7 +1215,11 @@
           },
           xAxis: {
             type: "category",
+            axisTick: {
+              show: false
+            },
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
@@ -1164,25 +1227,27 @@
           },
           yAxis: {
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
             }
           },
+          color: colors,
           series: [
             {
               type: "bar",
-              barWidth: 15,
-              itemStyle: {
-                color: "#ff0000"
-              }
+              barWidth: 15
             },
             {
               type: "bar",
-              barWidth: 15,
-              itemStyle: {
-                color: "#2FC25B"
-              }
+              barWidth: 15
             }
           ]
         };
@@ -1201,28 +1266,40 @@
           },
           xAxis: {
             type: "value",
+            axisTick: {
+              show: false
+            },
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
+            },
+            splitLine: {
+              show: false
             }
           },
           yAxis: {
             type: "category",
             data: ["巴西", "印尼", "美国", "印度", "中国", "世界"],
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
             }
           },
+          color: colors,
           series: [
             {
               type: "bar",
-              data: [121, 32, 43, 544, 445, 344],
-              itemStyle: {
-                color: "#188df0"
-              }
+              data: [121, 32, 43, 544, 445, 344]
             }
           ]
         };
@@ -1256,6 +1333,16 @@
           xAxis: {
             type: "category",
             axisLine: {
+              show: false,
+              lineStyle: {
+                color: "#fff"
+              }
+            },
+            axisTick: {
+              show: false
+            },
+            axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
@@ -1263,25 +1350,27 @@
           },
           yAxis: {
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
             }
           },
+          color: colors,
           series: [
             {
               type: "bar",
-              barWidth: 15,
-              itemStyle: {
-                color: "#ff0000"
-              }
+              barWidth: 15
             },
             {
               type: "bar",
-              barWidth: 15,
-              itemStyle: {
-                color: "#2FC25B"
-              }
+              barWidth: 15
             }
           ]
         };
@@ -1314,7 +1403,11 @@
           },
           xAxis: {
             type: "category",
+            axisTick: {
+              show: false
+            },
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
@@ -1322,29 +1415,52 @@
           },
           yAxis: {
             axisLine: {
+              show: false,
               lineStyle: {
                 color: "#fff"
               }
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
             }
           },
+          color: colors,
           series: [
             {
               type: "bar",
-              barWidth: 15,
-              itemStyle: {
-                color: "#ff0000"
-              }
+              barWidth: 15
             },
             {
               type: "bar",
-              barWidth: 15,
-              itemStyle: {
-                color: "#2FC25B"
-              }
+              barWidth: 15
             }
           ]
         };
         planBackBarChart.setOption(planBackBarOption);
+
+        // 滚动上报列表
+        var boxHeight = document.getElementById("scroll_box").offsetHeight;
+        var listHeight = document.getElementById("reported_list").offsetHeight;
+        var scrollHeight = listHeight - boxHeight;
+        if (scrollHeight > 0) {
+          scrollList(scrollHeight);
+        }
+        function scrollList(h) {
+          var top = 0;
+          var timer = setInterval(function() {
+            top++;
+            document.getElementById("reported_list").style.top = -top + "px";
+            if (top >= h) {
+              clearInterval(timer);
+              setTimeout(function() {
+                scrollList(h);
+              }, 1000);
+            }
+          }, 60);
+        }
       };
     </script>
   </body>
